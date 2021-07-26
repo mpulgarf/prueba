@@ -1,0 +1,77 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  annotations:
+    openshift.io/deployer-pod.completed-at: '2021-07-26 03:20:06 +0000 UTC'
+    openshift.io/deployer-pod.created-at: '2021-07-26 03:19:56 +0000 UTC'
+    openshift.io/deployer-pod.name: fonoinfancia-dev-4-deploy
+    openshift.io/deployment-config.latest-version: '4'
+    openshift.io/deployment-config.name: fonoinfancia-dev
+    openshift.io/deployment.phase: Complete
+    openshift.io/deployment.replicas: ''
+    openshift.io/deployment.status-reason: config change
+    openshift.io/encoded-deployment-config: >
+      {"kind":"DeploymentConfig","apiVersion":"apps.openshift.io/v1","metadata":{"name":"fonoinfancia-dev","namespace":"fonoinfancia-dev","selfLink":"/apis/apps.openshift.io/v1/namespaces/fonoinfancia-dev/deploymentconfigs/fonoinfancia-dev","uid":"0e8bfb80-e5ad-11eb-828a-0050569f6245","resourceVersion":"21356038","generation":4,"creationTimestamp":"2021-07-15T20:41:40Z","labels":{"app":"fonoinfancia-dev"},"annotations":{"openshift.io/generated-by":"OpenShiftNewApp"}},"spec":{"strategy":{"type":"Rolling","rollingParams":{"updatePeriodSeconds":1,"intervalSeconds":1,"timeoutSeconds":600,"maxUnavailable":"25%","maxSurge":"25%"},"resources":{},"activeDeadlineSeconds":21600},"triggers":[{"type":"ConfigChange"}],"replicas":1,"revisionHistoryLimit":10,"test":false,"selector":{"app":"fonoinfancia-dev","deploymentconfig":"fonoinfancia-dev"},"template":{"metadata":{"creationTimestamp":null,"labels":{"app":"fonoinfancia-dev","deploymentconfig":"fonoinfancia-dev"},"annotations":{"openshift.io/generated-by":"OpenShiftNewApp"}},"spec":{"containers":[{"name":"fonoinfancia-dev","image":"10.160.16.45:5000/fonoinfancia-dev:70","ports":[{"containerPort":80,"protocol":"TCP"}],"resources":{},"terminationMessagePath":"/dev/termination-log","terminationMessagePolicy":"File","imagePullPolicy":"Always"}],"restartPolicy":"Always","terminationGracePeriodSeconds":30,"dnsPolicy":"ClusterFirst","securityContext":{},"schedulerName":"default-scheduler"}}},"status":{"latestVersion":4,"observedGeneration":3,"replicas":1,"updatedReplicas":1,"availableReplicas":1,"unavailableReplicas":0,"details":{"message":"config
+      change","causes":[{"type":"ConfigChange"}]},"conditions":[{"type":"Available","status":"True","lastUpdateTime":"2021-07-15T20:41:47Z","lastTransitionTime":"2021-07-15T20:41:47Z","message":"Deployment
+      config has minimum
+      availability."},{"type":"Progressing","status":"True","lastUpdateTime":"2021-07-15T21:11:48Z","lastTransitionTime":"2021-07-15T21:11:45Z","reason":"NewReplicationControllerAvailable","message":"replication
+      controller \"fonoinfancia-dev-3\" successfully rolled
+      out"}],"readyReplicas":1}}
+  creationTimestamp: '2021-07-26T03:19:56Z'
+  generation: 2
+  labels:
+    app: fonoinfancia-dev
+    openshift.io/deployment-config.name: fonoinfancia-dev
+  name: fonoinfancia-dev-4
+  namespace: fonoinfancia-dev
+  ownerReferences:
+    - apiVersion: apps.openshift.io/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: DeploymentConfig
+      name: fonoinfancia-dev
+      uid: 0e8bfb80-e5ad-11eb-828a-0050569f6245
+  resourceVersion: '21356127'
+  selfLink: >-
+    /api/v1/namespaces/fonoinfancia-dev/replicationcontrollers/fonoinfancia-dev-4
+  uid: 5a177753-edc0-11eb-b092-0050569f6245
+spec:
+  replicas: 1
+  selector:
+    app: fonoinfancia-dev
+    deployment: fonoinfancia-dev-4
+    deploymentconfig: fonoinfancia-dev
+  template:
+    metadata:
+      annotations:
+        openshift.io/deployment-config.latest-version: '4'
+        openshift.io/deployment-config.name: fonoinfancia-dev
+        openshift.io/deployment.name: fonoinfancia-dev-4
+        openshift.io/generated-by: OpenShiftNewApp
+      creationTimestamp: null
+      labels:
+        app: fonoinfancia-dev
+        deployment: fonoinfancia-dev-4
+        deploymentconfig: fonoinfancia-dev
+    spec:
+      containers:
+        - image: '10.160.16.45:5000/fonoinfancia-dev:70'
+          imagePullPolicy: Always
+          name: fonoinfancia-dev
+          ports:
+            - containerPort: 80
+              protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+status:
+  availableReplicas: 1
+  fullyLabeledReplicas: 1
+  observedGeneration: 2
+  readyReplicas: 1
+  replicas: 1
